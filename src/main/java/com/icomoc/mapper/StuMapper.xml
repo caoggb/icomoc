@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icomoc.mapper.StuMapper">
+	<select id="findAll"  resultType="Stu">
+	select id , name from student
+	</select>
+	<update id="upStu" parameterType="Stu">
+	update student set name=#{name} where id=#{id}
+	</update>
+	<delete id="delStu" parameterType="int" >
+	delete from student where id=#{id}
+	</delete>
+	<insert id="addStu" parameterType="Stu">
+	insert into student values(#{id},#{name})
+	</insert>
+	<select id="getStu" parameterType="int" resultType="Stu">
+	select * from student where id=#{id}
+	</select>
+	<select id="likeStu" parameterType="string" resultType="Stu">
+	select * from student where name like #{name}
+	</select>
+</mapper>
